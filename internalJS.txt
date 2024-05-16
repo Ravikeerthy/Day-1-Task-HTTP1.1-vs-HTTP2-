@@ -1,0 +1,30 @@
+Write a blog about objects and its internal representation in Javascript
+
+
+In javascript, objects play a crucial role as data types. Primitive datatypes (such as integer, string, boolean, etc.) are distinct from objects. Objects can store numerous values in the form of Key: value pairs, in contrast to primitive data types that only carry one value. Objects have keys that might be variables or functions; the former are known as properties and the latter as methods.
+
+Example:
+
+let person = {
+    name: "Keerthana",
+    age: 25,
+    greet: function() {
+        console.log("Hello, my name is " + this.name);
+    }
+};
+
+person.greet(); // Output: Hello, my name is Keerthana
+
+Internal Representation of Objects
+
+Performance is optimised by complex structures used by JavaScript engines such as V8.
+
+1. The engine creates a hidden class or shape that maps property names to memory offsets when an object is generated. Instead of creating a new object with all the same properties in a different order, the engine will use the hidden class again.
+
+2. By storing the location of properties in a cache after their initial access, inline caching makes subsequent accesses faster, therefore speeding up property access.
+
+3. Transition chains allow the engine to handle object structure changes quickly by creating a new hidden class and linking it to the old one when properties are added or withdrawn.
+
+4. Depending on the object's size and how often they change, properties can be stored inline or in a dictionary-like structure.
+
+

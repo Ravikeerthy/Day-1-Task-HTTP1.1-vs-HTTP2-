@@ -1,0 +1,54 @@
+Write a blog on Difference between HTTP1.1 vs HTTP2
+
+Versions of the Hypertext Transfer Protocol (HTTP) that facilitate communication between servers and clients (such web browsers) include HTTP/1.1 and HTTP/2. They differ mostly in the following ways:
+
+HTTP/1.1: 
+
+1. Connection Management.
+
+HTTP/1.1 allows persistent connections, which let you send more than one request and response over the same connection. At any one time, though, each connection can only manage one request-response cycle.
+
+2. Response/Request Model:
+
+Requests that are synchronous mean that before sending another on the same connection, one must wait for a response, which could result in head-of-line traffic jamming.
+
+3. Head Compression:
+
+No compression: Header compression is not included into HTTP/1.1, which increases overhead, particularly for headers that are repeated.
+
+4. Parallelism
+
+Browsers frequently open several connections to the same server in order to retrieve resources concurrently, increasing network congestion and resource utilisation.
+
+5. Order of importance:
+
+There is no built-in method to prioritise specific requests above others.
+
+
+HTTP/2 
+
+1. Connection Management:
+
+With HTTP/2, a single multiplexed connection can process numerous requests and responses at once, eliminating the need to establish numerous connections and the associated overhead.
+
+2. Request-Response Model:
+
+By eliminating the need for each request and answer to wait for the other, asynchronous requests greatly improve performance and decrease latency.
+
+3. Header Compression:
+
+HTTP/2 employs HPACK compression to lessen header size, which improves efficiency and decreases overhead.
+
+4. Parallelism
+
+With stream multiplexing, a single connection can retrieve several resources at once across numerous streams, each with its own unique identifier. This eliminates the need for multiple connections.
+
+5. Order of importance:
+
+The ability to prioritise streams is a new feature of HTTP/2 that lets clients load more critical resources first.
+
+6. The Binary Protocol:
+
+In contrast to HTTP/1.1's text-based format, which is inefficient and prone to errors, HTTP/2 employs a binary framing layer.
+
+
